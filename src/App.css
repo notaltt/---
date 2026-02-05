@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Pacifico', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
+.fullscreen-button {
+  font-family: 'Pacifico', cursive;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  background: white;
+  color: black;
+  font-size: 3.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 4s ease; /* 🌸 slow pink fade */
+}
+
+.fullscreen-button:disabled {
+  cursor: default;
+}
+
+.pink-bg {
+  background: #ff9ebc;
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ❤️ Floating Hearts */
+
+.hearts-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.heart {
+  position: absolute;
+  bottom: -10%;
+  opacity: 0.8;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes floatUp {
   from {
-    transform: rotate(0deg);
+    transform: translateY(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(-120vh);
   }
 }
